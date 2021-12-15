@@ -1,0 +1,74 @@
+.listnavbar {
+    display: flex;  
+    background-color:#161618;
+    /* background-image: linear-gradient(#272727, #292525); */
+    align-items: center; 
+    width: auto;
+    border-bottom: 1px solid black;
+    height: 5%; 
+    position: fixed; 
+    width: 100vw; 
+    z-index: 20;
+    padding-left: 2%;
+    top: 0;
+    font-weight: 300;
+}
+
+.listappLink {
+
+}
+
+.listappName {
+   color: white;
+   font-size: 1em;
+}
+
+.listprofileLink {
+    margin-left: auto;
+    margin-right: 6%; 
+}
+
+.listprofileButton {
+    border: .5px solid #eaedf6;
+    border-radius: 50%; 
+    height: 3vh;  
+    align-self: center; 
+    width: 3vh; 
+
+}
+
+.navType {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+}
+
+Link {
+  margin-left: 10%;
+}
+
+
+.listappLink {
+    color: #b7b3a6;
+}
+
+.navType {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 80vw; 
+  justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -5,6 +5,14 @@
     justify-content: space-between;
     padding-left: 1%;
     padding-right: 1%;
-    background-color: rgb(196, 196, 196);
+    background-color: #333333;
+    color: white; 
 }
 
+.profileButton {
+    border: .5px solid #eaedf6;
+    border-radius: 50%; 
+    height: 75%;  
+    align-self: center; 
+    width: 5vh; 
+}

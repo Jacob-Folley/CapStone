@@ -1,18 +1,24 @@
 .userPicture {
-    width: 5%; height: 5%; 
-    border: solid 1px black;
+   
 }
 
 .userStatistics {
-    width: 8%; height: 5%; 
-    border: solid 1px black;
+    
 }
 
 .userList {
-    width: 70%; 
+    margin-top: 5%;
+    margin-left: 6%;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .userHome {
-    width: 2%; height: 2%; 
-    border: solid 1px black;
+   
+}
+.rating{
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 60%;
 }

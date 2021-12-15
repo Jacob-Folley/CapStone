@@ -1,17 +1,33 @@
 .homeCards {
     display: flex; 
-    margin-top: 5%; 
     justify-content: center;
     height: 100vh;
     overflow: auto;
 }
 .card-body {
+    margin-top: 10%;
     border: solid 1px black; 
     border-radius: 3%;
     height: 60%; 
     width: 20%; 
-    background-color: rgb(150, 150, 150); 
-    box-shadow: 10px 10px 5px grey inset;
+    background-image: linear-gradient(#333333, #29272e);
+    box-shadow: 10px 10px 5px rgb(44, 44, 44) inset;
+}
+
+.card-body:hover {
+    transform: scale(1.2);
+    border: solid 1px black;
+    border-radius: 3%;
+    box-shadow: 10px 10px 5px rgb(44, 44, 44) inset;
+    z-index: 2;
+}
+
+.card-body:hover .info {
+    visibility: hidden;
+}
+
+.card-body:hover .info1 {
+    visibility: hidden;
 }
 
 .card-title {
