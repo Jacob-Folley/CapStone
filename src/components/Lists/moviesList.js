@@ -86,27 +86,30 @@ export const MovieList = () => {
 
                 <section className="mainPage">
 
-                    <section className="categoryName">
+                    <div className="filterSearch">
 
-                        <section className="titleSection">
-                            <h2>Movies</h2>
+                        <section className="categoryName">
+
+                            <section className="titleSection">
+                                <h2>Movies</h2>
+                            </section>
+
+                            <div className="listCategory">
+                                <div><button className="filter" onClick={() => { topRated() }}>Rating</button></div>
+                                <div><button className="filter" onClick={() => { newest() }}>Date</button></div>
+                                <div><button className="filter">Genre</button></div>
+                            </div>
                         </section>
+                        
+                        <div className="searchContainer">
 
-                        <div className="listCategory">
-                            <div><button className="filter" onClick={() => { topRated() }}>Rating</button></div>
-                            <div><button className="filter" onClick={() => { newest() }}>Date</button></div>
-                            <div><button className="filter">Genre</button></div>
+                            <input className="searchBar" onChange={(e) => {
+                                const searchItem = e.target.value
+                                setSearch(searchItem);
+                            }} type="text" placeholder="search..."></input>
+                            <button className="submit" type="submit" onClick={() => { searchFunction() }}>go</button>
+
                         </div>
-                    </section>
-
-                    <div className="searchContainer">
-
-                        <input className="searchBar" onChange={(e) => {
-                            const searchItem = e.target.value
-                            setSearch(searchItem);
-                        }} type="text" placeholder="search..."></input>
-                        <button className="submit" type="submit" onClick={() => { searchFunction() }}>go</button>
-
                     </div>
 
                     <hr />

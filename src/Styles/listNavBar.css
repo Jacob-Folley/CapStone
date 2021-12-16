@@ -1,10 +1,10 @@
 .listnavbar {
     display: flex;  
-    background-color:#161618;
+    background-color: rgba(39, 44, 53, 1);
     /* background-image: linear-gradient(#272727, #292525); */
     align-items: center; 
     width: auto;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(47, 59, 73);
     height: 5%; 
     position: fixed; 
     width: 100vw; 
@@ -19,7 +19,7 @@
 }
 
 .listappName {
-   color: white;
+   color: #9c9c9cdd;
    font-size: 1em;
 }
 
@@ -29,11 +29,13 @@
 }
 
 .listprofileButton {
-    border: .5px solid #eaedf6;
+    border: .5px solid rgb(47, 59, 73);
     border-radius: 50%; 
     height: 3vh;  
     align-self: center; 
     width: 3vh; 
+    background-color: rgb(47, 59, 73);
+    color: white;
 
 }
 

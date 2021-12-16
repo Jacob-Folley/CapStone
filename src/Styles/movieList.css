@@ -2,7 +2,7 @@
 .MovieModule {
     display: flex; 
     flex-direction: row;
-    background-image: linear-gradient(#161618, #18181a);
+    background-color: rgba(39, 44, 53, 1);
     /* background-image: linear-gradient(#161618, #121212); */
     height: auto;
 }
@@ -12,7 +12,7 @@
 }
 
 .titleSection {
-    color: #9c9c9c;
+    color: white;
 }
 
 
@@ -46,7 +46,7 @@
     display: flex;
     flex-direction: column;
     background-color: #161618;
-    color: #9c9c9c;
+    color: white;
     position: fixed;
     z-index: 1;
 }
@@ -72,16 +72,23 @@
 }
 
 a {
-    text-decoration: none; 
-    color: #9c9c9c; 
+    text-decoration: none;  
+    font-weight: bold;
+    color: white; 
     
+}
+
+.filterSearch {
+    display: flex;
+    margin-top: 4%;
+    flex-direction: row;
+    margin-left: 6%;
+    width: 100vw;
 }
 
 .categoryName {
     display: flex;
-    justify-content: center;
-    margin-top: 3%;
-    width: 100vw;
+    align-items: center;
 }
 
 .listCategory {
@@ -98,34 +105,38 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    margin-bottom: .5%;
-    margin-top: -1%;
+    margin-left: 17%
 }
 
 .submit {
     float: right;
-    padding: .5% .5%;
+    padding: .5%;
     margin-top: 8px;
     margin-right: 16px;
     width: 3vw;
-    background: #191919;
+    background: #305e94;
     font-size: .75em;
     border: none;
     cursor: pointer;
-    color: #9c9c9c; 
+    color: white; 
     border-left: 1px solid black;
     box-shadow: 0 2px 2px 0px black;
+    border-radius: 0 15px 15px 0; 
+    height: 3vh;
   }
   
   .searchBar {
-    width: 10vw;
+    width: 20vw;
     padding: .5%;
     margin-top: 8px;
     font-size: .75em;
     border: none;
-    background: #191919;
-    color: #9c9c9c; 
+    background-color: rgba(67, 76, 91, 1);
+    opacity: 50%;
+    color: white; 
     box-shadow: 0 2px 2px 0px black;
+    border-radius: 15px 0 0 15px;
+    height: 3vh;
   }
   
   .searchBar:focus{
@@ -184,13 +195,13 @@ img {
   font-family: inherit;
   padding: 0;
   cursor: pointer;
-  color: #9c9c9c; 
+  color: white; 
   font-size: .75em;
 }
 
 hr {
     width: 75%; 
     align-self: center; 
-    border: 1px solid #2f2f30; 
+    border: 1px solid rgb(47, 59, 73); 
     margin-bottom: 1%;
 }
