@@ -10,7 +10,7 @@
     border-radius: 3%;
     height: 60%; 
     width: 20%; 
-    background-color: rgba(67, 76, 91, 1);
+    background-color: var(--card-body);
     opacity: 30%;
     margin-right: 1%;
 }

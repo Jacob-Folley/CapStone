@@ -20,7 +20,7 @@ export const postInput = (request) => {
         body: JSON.stringify(request)
     }
 
-    return fetch(`http://localhost:8088/animeInput`, fetchOptions)
+    return fetch(`http://localhost:8088/userInput`, fetchOptions)
         .then(response => response.json())
         .then(() => {
 
@@ -31,6 +31,28 @@ export const postInput = (request) => {
 export const getAnimeInput = () => {
     return fetch(`http://localhost:8088/animeInput`)
         .then(res => res.json())
+}
+
+export const getTrailer = (id) => {
+    return fetch(`https://imdb-api.com/en/API/Trailer/k_qjajechb/${id}`)
+    .then(res => res.json())
+}
+
+
+export const postTrailer = (request) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(request)
+    }
+
+    return fetch(`http://localhost:8788/Trailers`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+
+        })
 }
 
 // Movies

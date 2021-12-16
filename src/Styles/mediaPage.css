@@ -8,7 +8,7 @@
     border: solid 1px black; 
     box-shadow: 0 4px 2px 0px black;
     border-radius: 15px; 
-    background-image: linear-gradient(to right top, #1a222f, #202835, #262e3a, #2d3440, #333a46);
+    background-image: var(--background);
 }
 
 .MainContainer {
@@ -22,12 +22,11 @@
     padding-left: 1%;
     padding-right: 1%;
     border-radius: 25px;
-    box-shadow: 0 2px 2px 0px black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .title {
-    font: 3em; 
-    color: white; 
+    color: var(--color-1); 
     width: 75%;
     height: 30%; 
     display: flex; 
@@ -40,7 +39,7 @@
     margin-left: 5%;
     background-color: rgb(47, 59, 73);
     border: 1px solid black;
-    color: white; 
+    color: var(--color-1); 
     border-radius: 5px;
     box-shadow: 0 2px 2px 0px black;
 }
@@ -54,7 +53,7 @@
 
 .synopsis {
     width: 40%;
-    color: white; 
+    color: var(--color-1); 
     width: 80%;
     height: 35%;  
     margin-left: 10%;
@@ -70,7 +69,7 @@
 .picture {
     height: auto;
     border: solid 1px black; 
-    box-shadow: 0 4px 2px 0px black;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 img {
@@ -83,7 +82,7 @@ img {
 /* ----------------------------------------------- */
 
 .ratingsContainer {
-    color: white; 
+    color: var(--color-1); 
     display: flex; 
     width: 40%; 
     padding-left: 2%;
@@ -91,6 +90,15 @@ img {
     flex-direction: column;
     justify-content: space-evenly; 
     margin-left: 2%;
+}
+
+.mediaRatings {
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 .ratings {
@@ -121,8 +129,8 @@ img {
     text-align: center;
 }
 #userRate {
-    background-color: rgb(47, 59, 73);
-    color: white; 
+    background-color: var(--buttons);
+    color: var(--color-1); 
     border: 1px solid black;
 }
 textarea {
@@ -131,8 +139,8 @@ textarea {
     background-color: rgb(51, 58, 70);
     border: 1px solid black;
     border-radius: 15px;
-    box-shadow: 0 2px 2px 0px black;
-    color: white; 
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    color: var(--color-1); 
 }
 
 textarea:focus{
@@ -140,8 +148,8 @@ textarea:focus{
   }
 
 .reviewButton {
-    color: white;
+    color: var(--color-1);
     border: solid 1px black;
-    background-color: rgb(47, 59, 73);
+    background-color: var(--buttons);
     border-left: solid 1px black;
 }

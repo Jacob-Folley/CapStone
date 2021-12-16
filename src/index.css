@@ -3,7 +3,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: rgba(39, 44, 53, 1);
+  background-color: var(--container-dark);
   height: auto;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;

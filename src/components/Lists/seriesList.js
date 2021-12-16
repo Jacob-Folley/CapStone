@@ -35,10 +35,11 @@ export const SeriesList = () => {
 
     useEffect(
         () => {
-            const foundSeries = series.filter((show) => {
-                return show.title.toLowerCase().includes(search.toLowerCase())
-            })
-            setSeries(foundSeries)
+            search === "" ? getSeries().then((data) => { setSeries(data) }) :
+                setSeries(series.filter((show) => {
+                    return show.title.toLowerCase().includes(search.toLowerCase())
+                }))
+
         },
         [search]
     )
@@ -88,29 +89,31 @@ export const SeriesList = () => {
 
                 <section className="mainPage">
 
-                    <section className="categoryName">
+                    <div className="filterSearch">
 
-                        <section className="titleSection">
-                            <h2>Series</h2>
+                        <section className="categoryName">
+
+                            <section className="titleSection">
+                                <h2>Series</h2>
+                            </section>
+
+                            <div className="listCategory">
+                                <div><button className="filter" onClick={() => { topRated() }}>Rating</button></div>
+                                <div><button className="filter" onClick={() => { newest() }}>Date</button></div>
+                                <div><button className="filter">Genre</button></div>
+                            </div>
                         </section>
 
-                        <div className="listCategory">
-                            <div><button className="filter" onClick={() => { topRated() }}>Rating</button></div>
-                            <div><button className="filter" onClick={() => { newest() }}>Date</button></div>
-                            <div><button className="filter">Genre</button></div>
+                        <div className="searchContainer">
+
+                            <input className="searchBar" onChange={(e) => {
+                                const searchItem = e.target.value
+                                setSearch(searchItem);
+                            }} type="text" placeholder="search..."></input>
+                            <button className="submit" type="submit" onClick={() => { searchFunction() }}>go</button>
+
                         </div>
-                    </section>
-
-                    <div className="searchContainer">
-                     
-                        <input className="searchBar" onChange={(e) => {
-                            const searchItem = e.target.value
-                            setSearch(searchItem);
-                        }} type="text" placeholder="search..."></input>
-                        <button className="submit" type="submit" onClick={() => { searchFunction() }}>go</button>
-                       
                     </div>
-
                     <hr />
 
                     <div className="listList">

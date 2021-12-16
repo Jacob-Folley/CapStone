@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getAnime } from "../Fetch/anime"
+import { getAnime, getTrailer, postTrailer } from "../Fetch/anime"
 import { ListNavBar } from "../NavBar/listNavBar"
 import { useHistory, Link } from "react-router-dom"
 
@@ -72,13 +72,28 @@ export const AnimeList = () => {
     }
 
 
+
+    // anime.map((show) => {
+    //    getTrailer(show.id)
+    //    .then((data) => {
+    //        setTrailers(data)
+    //    })
+    // })
+
+
+
+    // trailers.map((obj) => {
+    //     postTrailer(obj)
+    // })
+
+
     //-------------------------------------------------------------------------------------------------------------------
 
 
     return (
         <>
             <article className="MovieModule">
-            <ListNavBar />
+                <ListNavBar />
 
                 {/* <section className="listSideBar">
 
@@ -102,30 +117,30 @@ export const AnimeList = () => {
 
                 <section className="mainPage">
 
-                
+                    <div className="filterSearch">
 
-                    <section className="categoryName">
-                        <section className="titleSection">
-                            <h2>Anime</h2>
+                        <section className="categoryName">
+                            <section className="titleSection">
+                                <h2>Anime</h2>
+                            </section>
+
+                            <div className="listCategory">
+                                <div><button className="filter" onClick={() => { topRated() }}>Rating</button></div>
+                                <div><button className="filter" onClick={() => { newest() }}>Date</button></div>
+                                <div><button className="filter">Genre</button></div>
+                            </div>
                         </section>
 
-                        <div className="listCategory">
-                            <div><button className="filter" onClick={() => { topRated() }}>Rating</button></div>
-                            <div><button className="filter" onClick={() => { newest() }}>Date</button></div>
-                            <div><button className="filter">Genre</button></div>
+                        <div className="searchContainer">
+
+                            <input className="searchBar" onChange={(e) => {
+                                const searchItem = e.target.value
+                                setSearch(searchItem);
+                            }} type="text" placeholder="search..."></input>
+                            <button className="submit" type="submit" onClick={() => { searchFunction() }}>go</button>
+
                         </div>
-                    </section>
-
-                    <div className="searchContainer">
-
-                        <input className="searchBar" onChange={(e) => {
-                            const searchItem = e.target.value
-                            setSearch(searchItem);
-                        }} type="text" placeholder="search..."></input>
-                        <button className="submit" type="submit" onClick={() => { searchFunction() }}>go</button>
-
                     </div>
-
                     <hr />
 
                     <div className="listList">

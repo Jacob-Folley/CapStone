@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { postAnime, getMyAnime, deleteAnime, getAnimeShow, postInput, getAnimeInput } from "../Fetch/anime"
+import { getUserInput } from "../Fetch/imdb"
 import { ListNavBar } from "../NavBar/listNavBar"
 
 export const Anime = () => {
@@ -78,27 +79,28 @@ export const Anime = () => {
 
     const postAnimeList = () => {
         postAnime(anime)
-        .then(() => {
-            getMyAnime()
-            .then((data) => {
-                setShows(data)
+            .then(() => {
+                getMyAnime()
+                    .then((data) => {
+                        setShows(data)
+                    })
             })
-        })
     }
 
     const deleteAnimeShow = () => {
         deleteAnime(animeId)
-        .then(() => {
-            getMyAnime()
-            .then((data) => {
-                setShows(data)
+            .then(() => {
+                getMyAnime()
+                    .then((data) => {
+                        setShows(data)
+                    })
             })
-        })
     }
 
     const checkingInput = () => {
         postInput(inputObject)
-        .then(() => {getAnimeInput()
+            .then(() => {
+                getUserInput()
                 .then((data) => {
                     const foundObj = data.find((obj) => {
                         return obj.userId === user && obj.imdbId === animeId
@@ -115,80 +117,82 @@ export const Anime = () => {
         <>
             <ListNavBar />
             <section className="overallContainer">
-            <section className="infoContainer">
-                
-                <div className="picture">
-                    <img src={anime.image} alt="animePicture"></img>
-                </div>
-                
-                <div className="info">
+                <section className="infoContainer">
 
-                </div>
-            
-            </section>
-
-
-            <section className="MainContainer">
-             
-                <div className="title">
-                    <h1>{anime.title}</h1>
-                    {animeFound ? <button type="submit" className="addDelete" onClick={() => { deleteAnimeShow() }}>Remove</button> : <button type="submit" className="addDelete" onClick={() => { postAnimeList() }}>Add</button>}
-                </div>
-               
-                <div className="synopsis">
-                    <p></p>
-                </div>
-            
-            </section>
-
-            
-           
-
-
-            <section className="ratingsContainer">
-              
-                <div className="ratings">
-                    imdb rating: <b>{anime.imDbRating}</b>
-                </div>
-
-            
-
-
-            
-            {checkInput ? <div className="userReview"><b>{checkInput.rating}</b> {checkInput.review} </div> :
-                <section className="userReviewContainer">
-                    <section className="userReviewflex">
-                   <div> <select onChange={() => { setRating(document.querySelector('select').value) }} name="rating" id="userRate">
-                        <option>Select a Rating</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select> 
+                    <div className="picture">
+                        <img src={anime.image} alt="animePicture"></img>
                     </div>
 
-                    <div><button className="reviewButton" onClick={() => {
-                        checkingInput()
-                        document.querySelector('textarea').value = ''
-                    }}>submit</button>
+                    <div className="info">
+
                     </div>
+
+                </section>
+
+
+                <section className="MainContainer">
+
+                    <div className="title">
+                        <h2>{anime.title}</h2>
+                        {animeFound ? <button type="submit" className="addDelete" onClick={() => { deleteAnimeShow() }}>Remove</button> : <button type="submit" className="addDelete" onClick={() => { postAnimeList() }}>Add</button>}
+                    </div>
+
+                    <div className="synopsis">
+                        <p></p>
+                    </div>
+
+                </section>
+
+
+
+
+
+                <section className="ratingsContainer">
+
+                    <section className="mediaRatings">
+                        <div className="ratings">
+                            <div>imdb rating: <b>{anime.imDbRating}</b></div>
+                            <div>rotten tomatoes: </div>
+                        </div>
                     </section>
-                    <div className="userReview">
-                        <textarea onChange={() => { setInput(document.querySelector('textarea').value) }}></textarea>
-                    </div>
 
-            
 
-                </section>}
+
+
+                    {checkInput ? <div className="userReview"><b>{checkInput.rating}</b> {checkInput.review} </div> :
+                        <section className="userReviewContainer">
+                            <section className="userReviewflex">
+                                <div> <select onChange={() => { setRating(document.querySelector('select').value) }} name="rating" id="userRate">
+                                    <option>Select a Rating</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                </div>
+
+                                <div><button className="reviewButton" onClick={() => {
+                                    checkingInput()
+                                    document.querySelector('textarea').value = ''
+                                }}>submit</button>
+                                </div>
+                            </section>
+                            <div className="userReview">
+                                <textarea onChange={() => { setInput(document.querySelector('textarea').value) }}></textarea>
+                            </div>
+
+
+
+                        </section>}
 
                 </section>
-                </section>
+            </section>
 
         </>
 
