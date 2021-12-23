@@ -1,18 +1,113 @@
-.userPicture {
-    width: 5%; height: 5%; 
-    border: solid 1px black;
+.container {
+    display: flex;
 }
 
+.containerLeft {
+    display: flex;
+    border: .5px solid var(--border-2);
+    height: 80vh;
+    width: 15vw;
+    margin-left: 2%;
+    margin-top: 8%;
+    z-index: 1;
+    border-radius: 15px;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.containerRight {
+    width: 82vw; 
+}
+
+.left {
+    margin-right: 0;
+}
+
+.ProfileUserList {
+
+}
+
+.userPicture {
+    margin-top:-30%;
+    width: 12vw;
+    height: 24vh;
+    border: solid 1px var(--border-2);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    background-image: var(--background);
+}
+
+.picFrame {
+    margin-top: 5%;
+    height: 75%;
+    width: 80%;
+    border: solid 1px var(--border-2);
+    background-color: var(--buttons);
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-1);
+    z-index: 2;
+}
+
+.customerName {
+    text-align: center;
+    color: var(--color-3); 
+    margin-top: 5%;
+}
 .userStatistics {
-    width: 8%; height: 5%; 
-    border: solid 1px black;
+    display:flex;
+    flex-direction: column;
+    margin-top: 5%;
+    height: 20vh;
+    width: 12vw;
+    border: solid 1px var(--border-2);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: .75em;
+    border-radius: 15px;
+    background-image: var(--background);
+}
+
+.stats {
+    color: var(--color-3);
+    font-weight: bold; 
 }
 
 .userList {
-    width: 70%; 
+    margin-top: 1%;
+    margin-left: 5%;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .userHome {
-    width: 2%; height: 2%; 
-    border: solid 1px black;
+   
+}
+.rating{
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 60%;
+}
+
+.ProfilelistCategory {
+    display: flex;
+    margin-left: 1vw;
+    width: 25vw;
+    align-items: center;
+    justify-content: space-evenly; 
+    font-weight: 100;
+}
+
+.profileFilterSearch {
+    display: flex;
+    margin-top: 5%;
+    flex-direction: row;
+    justify-content: center;
+    width: 80vw;
 }
