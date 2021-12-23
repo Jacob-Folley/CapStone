@@ -1,10 +1,4 @@
 
-const imdb = {
-    API: "https://imdb-api.com/",
-    key: 'k_e23ph14d'
-    
-}
-
 const mediaApi = 'http://localhost:8788/'
 
 // User Input
@@ -27,19 +21,35 @@ export const postInput = (request) => {
         })
 }
 
+export const getInput = () => {
+    return fetch('http://localhost:8088/userInput')
+    .then(res => res.json())
+}
+
+export const deleteInput = (id) => {
+    return fetch(`http://localhost:8088/userInput/${id}`, {
+        method: "DELETE"
+    })
+}
+
 // Returns a list of the users input
 export const getAnimeInput = () => {
     return fetch(`http://localhost:8088/animeInput`)
         .then(res => res.json())
 }
 
-export const getTrailer = (id) => {
-    return fetch(`https://imdb-api.com/en/API/Trailer/k_qjajechb/${id}`)
+export const getAnimeInfo = (id) => {
+    return fetch(`http://localhost:8788/AnimeInfo`)
+    .then(res => res.json())
+}
+
+export const getInfo = (id) => {
+    return fetch(`https://imdb-api.com/en/API/Title/k_t2t7otz1/${id}/FullActor,FullCast,Trailer,Ratings,Wikipedia`)
     .then(res => res.json())
 }
 
 
-export const postTrailer = (request) => {
+export const postInfo = (request) => {
     const fetchOptions = {
         method: "POST",
         headers: {
@@ -48,7 +58,7 @@ export const postTrailer = (request) => {
         body: JSON.stringify(request)
     }
 
-    return fetch(`http://localhost:8788/Trailers`, fetchOptions)
+    return fetch(`http://localhost:8788/AnimeInfo`, fetchOptions)
         .then(response => response.json())
         .then(() => {
 
@@ -66,7 +76,7 @@ export const getAnime = () => {
 
 // Returns the specific Movie Object
 export const getAnimeShow = (id) => {
-    return fetch(`http://localhost:8788/Anime/${id}`)
+    return fetch(`http://localhost:8788/AnimeInfo/${id}`)
         .then(res => res.json())
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { getAnime, getTrailer, postTrailer } from "../Fetch/anime"
+import { getAnime, getAnimeInfo } from "../Fetch/anime"
 import { ListNavBar } from "../NavBar/listNavBar"
-import { useHistory, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 
 export const AnimeList = () => {
@@ -18,7 +18,7 @@ export const AnimeList = () => {
 
     useEffect(
         () => {
-            getAnime()
+            getAnimeInfo()
                 .then((data) => {
                     setAnime(data)
                 })
@@ -35,7 +35,7 @@ export const AnimeList = () => {
 
     useEffect(
         () => {
-            search === "" ? getAnime().then((data) => { setAnime(data) }) :
+            search === "" ? getAnimeInfo().then((data) => { setAnime(data) }) :
                 setAnime(anime.filter((movie) => {
                     return movie.title.toLowerCase().includes(search.toLowerCase())
                 }))
@@ -70,20 +70,21 @@ export const AnimeList = () => {
 
         }
     }
+  
 
-
-
-    // anime.map((show) => {
-    //    getTrailer(show.id)
-    //    .then((data) => {
-    //        setTrailers(data)
-    //    })
+    const AnimeId = anime.map((show) => { return show.id })
+    console.log(AnimeId)
+    
+    // const information = anime.map((show) => {
+    //    return getInfo(show.id)
+       
+       
     // })
 
 
 
-    // trailers.map((obj) => {
-    //     postTrailer(obj)
+    // information.map((obj) => {
+    //     postInfo(obj)
     // })
 
 

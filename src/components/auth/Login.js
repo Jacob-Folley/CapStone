@@ -28,18 +28,20 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <main className="container--log">
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
 
-            <section>
+            <div className="appNameTitle">
+                <h1>TSUNDOKU</h1>
+                <h2>Keep track of all your favorites.</h2>
+                </div>
+            <section className="container--login">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>CapStone</h1>
-                    <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label htmlFor="inputEmail"></label>
                         <input type="email"
                             onChange={evt => set(evt.target.value)}
                             className="form-control"
@@ -47,14 +49,14 @@ export const Login = () => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
-                            Sign in
+                        <button type="submit" className="loginButton">
+                            LOG IN
                         </button>
                     </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
+                    <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
+            </section>
+                </form>
             </section>
         </main>
     )

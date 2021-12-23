@@ -1,56 +1,117 @@
+import React, { useEffect, useState } from "react"
+import { useHistory, Link } from "react-router-dom"
 
-export const sideBar = () => {
-    const capitalize = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
+export const MainNavBar = () => {
+    const history = useHistory()
+
+    const [isOpen, setIsOpen] = useState(false);
+
+
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
     }
 
-
-    const topRated = () => {
-        let animeCopy = anime.map(movie => ({ ...movie }))
-        animeCopy.sort((a, b) => { return a.imDbRating - b.imDbRating })
-        return setSorted(animeCopy)
-
+    const logout = () => {
+        localStorage.clear()
+        history.push("/mainReact")
     }
 
-    const newest = () => {
-        let animeCopy = anime.map(movie => ({ ...movie }))
-        animeCopy.sort((a, b) => {return b.year - a.year })
-        setSorted(animeCopy)
+    let darkMode = localStorage.getItem('darkMode')
+
+    //check if dark mode is enabled
+    //if enabled, turn it off
+    //if enabled turn it onClick
+
+    const enableDarkMode = () => {
+        document.body.classList.add('darkmode');
+        localStorage.setItem('darkMode', 'enabled')
     }
 
+    const disableDarkMode = () => {
+        document.body.classList.remove('darkmode');
+        localStorage.setItem('darkMode', null)
+    }
 
-    const searchFunction = () => {
-        const foundAnime = anime.find((anime) => {
-            return anime.title === search
-        })
-        if (foundAnime) {
-            history.push(`/anime/${foundAnime.id}`)
+    if (darkMode === "enabled") {
+        enableDarkMode();
+    }
 
+    const dark = () => {
+        darkMode = localStorage.getItem("darkMode");
+        console.log(darkMode)
+        if (darkMode !== 'enabled') {
+            enableDarkMode();
         }
     }
 
+    const light = () => {
+        darkMode = localStorage.getItem("darkMode");
+        console.log(darkMode)
+        if (darkMode == 'enabled') {
+            disableDarkMode();
+        }
+    }
+
+    const Popup = props => {
+        return (
+            <div className="popup-box">
+                <div className="box">
+                    <span className="close-icon" onClick={props.handleClose}></span>
+                    {props.content}
+                </div>
+            </div>
+        );
+    };
+
+
     return (
-    <section className="listSideBar">
-        <div className="searchContainer">
-            <input className="SearchBar" onChange={() => {
-                const cap = capitalize(document.querySelector('input').value)
-                setSearch(cap.split(' ').map(capitalize).join(' '));
-            }}></input>
-            <button onClick={() => { searchFunction() }}>search</button>
-        </div>
-        <div className="listType">
-            <h3>Type</h3>
-            <Link to={`/movie`}>Movies</Link>
-            <Link to={`/series`}>Series</Link>
-            <Link to={`/anime`}>Anime</Link>
-            <Link to={`/book`}>Books</Link>
-        </div>
-        <div className="listCategory">
-            <h3>Category</h3>
-            <button onClick={() => { topRated() }}>Top Rated</button>
-            <button onClick={() => { newest() }}>Date</button>
-            <button>Genre</button>
-        </div>
-    </section>
+        <article className="listnavbar">
+
+            <section className="listappLink" onClick={() => { history.push("/") }}>
+                <h5 className="listappName">
+                    Tsundoku
+                </h5>
+            </section>
+
+            
+
+
+
+            <section className="listprofileLink">
+
+                <input
+                    className="react-switch-checkbox"
+                    id={`react-switch-new`}
+                    type="checkbox"
+                    onClick={() => {
+                        darkMode = localStorage.getItem("darkMode");
+                        console.log(darkMode)
+                        if (darkMode !== 'enabled') {
+                            enableDarkMode();
+                        } else {
+                            disableDarkMode();
+                        }
+                    }}
+                />
+                <label
+                    className="react-switch-label"
+                    htmlFor={`react-switch-new`}
+                >
+                    <span className={`react-switch-button`} />
+                </label>
+
+                <button className="listprofileButton" onClick={() => { togglePopup() }}>
+                    J
+                </button>
+                {isOpen && <Popup
+                    content={<>
+                        <p onClick={() => { history.push("/profile") }}>Profile</p>
+                        <p onClick={() => { logout() }}>LogOut</p>
+                    </>}
+                    handleClose={togglePopup}
+                />}
+            </section>
+
+        </article>
     )
 }

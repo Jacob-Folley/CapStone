@@ -10,6 +10,7 @@ import { SeriesList } from './Lists/seriesList'
 import { Movie } from './Pages/moviePage'
 import { Series } from './Pages/seriesPage'
 import { Anime } from './Pages/animePage'
+import { MainReact } from './mainReact'
 
 const ApplicationViews = () => {
     return (
@@ -51,8 +52,14 @@ const ApplicationViews = () => {
                 <Series />
             </Route>
 
-            <Route exact path="/anime/:animeId">
-                <Anime />
+            <Route path="/anime/:animeId" render={(props) => (
+                <Anime key={props.match.params.animeId} {...props} />)
+            } />
+
+           
+
+            <Route exact path="/mainReact">
+                <MainReact />
             </Route>
 
         </>

@@ -1,9 +1,4 @@
 
-const imdb = {
-    API: "https://imdb-api.com/",
-    key: 'k_e23ph14d'
-    
-}
 
 const mediaApi = 'http://localhost:8788/'
 
@@ -25,12 +20,6 @@ export const postInput = (request) => {
         .then(() => {
 
         })
-}
-
-// Returns a list of the users input
-export const getUserInput = () => {
-    return fetch(`http://localhost:8088/userInput`)
-        .then(res => res.json())
 }
 
 export const getCustomer = () => {

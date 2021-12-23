@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { postShow, getMyShows, deleteShow, getShow, postInput, getUserInput } from "../Fetch/imdb"
+import { postShow, getMyShows, deleteShow, getShow, postInput } from "../Fetch/imdb"
+import { getInput } from "../Fetch/anime"
 import { ListNavBar } from "../NavBar/listNavBar"
 
 export const Series = () => {
@@ -55,7 +56,7 @@ export const Series = () => {
 
     useEffect(
         () => {
-            getUserInput()
+            getInput()
                 .then((data) => {
                     const foundObj = data.find((obj) => {
                         return obj.userId === user && obj.imdbId === seriesId
@@ -112,7 +113,7 @@ export const Series = () => {
 
     const checkingInput = () => {
         postInput(inputObject)
-        .then(() => {getUserInput()
+        .then(() => {getInput()
                 .then((data) => {
                     const foundObj = data.find((obj) => {
                         return obj.userId === user && obj.imdbId === seriesId
