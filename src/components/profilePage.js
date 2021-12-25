@@ -133,6 +133,17 @@ export const ProfilePage = () => {
 
     useEffect(
         () => {
+            movies.map((data) => {
+                data.type = 'movie'
+            })
+
+            series.map((data) => {
+                data.type = 'series'
+            })
+
+            anime.map((data) => {
+                data.type = 'anime'
+            })
             let profileList = []
             let finalList = []
             profileList = movies.concat(series)
@@ -266,7 +277,7 @@ export const ProfilePage = () => {
                     <section className="userList">
                         {sorted.map((show) => {
                             // let rating = getMovieRating(movie)
-                            { return <div className="listObj" onClick={() => { history.push(`/movie/${show.id}`) }}> <div className="listTitle">{show.title}</div> <img src={show.image}></img> </div> }
+                            { return <div className="listObj" onClick={() => { history.push(`/${show.type}/${show.id}`) }}> <div className="listTitle">{show.title}</div> <img src={show.image}></img> </div> }
                         })}
                         {/* {series.map((show) => {
                             let rating = getSeriesRating(show)
